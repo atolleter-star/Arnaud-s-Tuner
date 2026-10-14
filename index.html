@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e3d7bd" />
+    <meta name="description" content="A pocket-sized, hands-on guitar tuner." />
+    <title>Arnaud Tuner — Tune by ear, by eye</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Yellowtail&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/assets/index-CI2aZYXD.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BIBd9Q_V.css">
+  </head>
+  <body>
+    <main class="app-shell" data-testid="tuner-app">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="Arnaud Tuner home" data-testid="link-home">
+          <span class="wordmark-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>ARNAUD <em>TUNER</em></span>
+        </a>
+        <div class="top-note"><span class="live-dot" aria-hidden="true"></span> POCKET TUNING / NO. 01</div>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow"><span class="eyebrow-line"></span> A SMALL MOMENT BEFORE THE SONG</div>
+        <h1 id="page-title">Arnaud's <i>Tuner</i></h1>
+        <p class="intro-copy">One string at a time. Pluck it, watch the needle, turn the key.</p>
+      </section>
+
+      <section class="tuner-card" aria-label="Live guitar tuner">
+        <div class="card-topline">
+          <div class="card-label"><span class="tiny-spark" aria-hidden="true"></span> STANDARD TUNING <span class="card-separator">/</span> A<sub>4</sub> = 440 HZ</div>
+          <div class="mic-state"><span class="state-led" id="state-led"></span><span id="mic-state-text" data-testid="status-microphone">MICROPHONE OFF</span></div>
+        </div>
+
+        <div class="meter-wrap">
+          <div class="meter-heading">
+            <span class="micro-label">PITCH METER</span>
+            <span class="micro-label meter-range">−50 <span>¢</span><span class="range-dash"></span> +50 <span>¢</span></span>
+          </div>
+          <div class="meter" role="img" aria-label="Analog pitch meter. Needle centered means in tune." data-testid="pitch-meter">
+            <div class="meter-face">
+              <div class="meter-arc" aria-hidden="true"></div>
+              <div class="meter-track" aria-hidden="true">
+                <span class="tick t1"></span><span class="tick t2"></span><span class="tick t3"></span><span class="tick t4"></span><span class="tick t5"></span><span class="tick t6"></span><span class="tick t7"></span><span class="tick t8"></span><span class="tick t9"></span>
+              </div>
+              <div class="meter-zone" aria-hidden="true"></div>
+              <span class="meter-mark mark-flat">FLAT</span><span class="meter-mark mark-sharp">SHARP</span>
+              <div class="needle" id="needle" aria-hidden="true"><span></span></div>
+              <div class="needle-hub" aria-hidden="true"></div>
+              <div class="meter-center-label">ARNAUD <b>•</b> TUNER</div>
+              <div class="meter-readout" id="meter-readout" data-testid="text-meter-guidance">PLUCK A STRING</div>
+            </div>
+          </div>
+          <div class="meter-scale" aria-hidden="true"><span>−50</span><span>−25</span><span>0</span><span>+25</span><span>+50</span></div>
+        </div>
+
+        <div class="readout-grid" aria-live="polite" aria-atomic="true">
+          <div class="note-readout">
+            <span class="micro-label">DETECTED NOTE</span>
+            <div class="note-line"><strong id="detected-note" data-testid="text-detected-note">—</strong><span class="note-octave" id="detected-octave"></span><span class="note-target" id="target-note">TARGET E₂</span></div>
+          </div>
+          <div class="readout-cell">
+            <span class="micro-label">FREQUENCY</span>
+            <strong id="frequency" data-testid="text-frequency">— <small>Hz</small></strong>
+          </div>
+          <div class="readout-cell cents-cell">
+            <span class="micro-label">OFFSET</span>
+            <strong id="cents" data-testid="text-cents">— <small>¢</small></strong>
+          </div>
+        </div>
+        <div class="tune-status" id="tune-status" data-testid="status-tuning" role="status">
+          <span class="status-mark" aria-hidden="true"></span><span id="status-copy">Waiting for a string</span>
+        </div>
+
+        <div class="string-selector">
+          <div class="selector-head"><span class="micro-label">CHOOSE A STRING</span><span class="selector-hint">STANDARD E–A–D–G–B–E</span></div>
+          <div class="string-buttons" role="group" aria-label="Select guitar string target">
+            <button class="string-button selected" data-index="0" aria-pressed="true" aria-label="Low E string, E2, 82.41 hertz" data-testid="button-string-E2"><strong>E</strong><small>6TH</small></button>
+            <button class="string-button" data-index="1" aria-pressed="false" aria-label="A string, A2, 110 hertz" data-testid="button-string-A2"><strong>A</strong><small>5TH</small></button>
+            <button class="string-button" data-index="2" aria-pressed="false" aria-label="D string, D3, 146.83 hertz" data-testid="button-string-D3"><strong>D</strong><small>4TH</small></button>
+            <button class="string-button" data-index="3" aria-pressed="false" aria-label="G string, G3, 196 hertz" data-testid="button-string-G3"><strong>G</strong><small>3RD</small></button>
+            <button class="string-button" data-index="4" aria-pressed="false" aria-label="B string, B3, 246.94 hertz" data-testid="button-string-B3"><strong>B</strong><small>2ND</small></button>
+            <button class="string-button" data-index="5" aria-pressed="false" aria-label="High E string, E4, 329.63 hertz" data-testid="button-string-E4"><strong>E</strong><small>1ST</small></button>
+          </div>
+          <div class="target-frequency"><span>REFERENCE</span><strong id="target-frequency" data-testid="text-target-frequency">E₂ <i>·</i> 82.41 Hz</strong></div>
+        </div>
+
+        <div class="controls">
+          <button class="start-button" id="start-button" data-testid="button-start">
+            <span class="button-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span>Start listening</span><span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="stop-button" id="stop-button" data-testid="button-stop" disabled>Release mic</button>
+          <p class="permission-note" id="permission-note">Your microphone stays on this device. We never record or store audio.</p>
+        </div>
+        <div class="error-panel" id="error-panel" role="alert" hidden>
+          <span class="error-symbol" aria-hidden="true">!</span>
+          <div><strong id="error-title">Microphone unavailable</strong><p id="error-copy"></p></div>
+          <button id="retry-button" data-testid="button-retry">Try again</button>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <div class="footer-tip"><span class="tip-number">01</span><p><strong>Give each string a clean pluck.</strong><br />Let the note ring out while the needle settles.</p></div>
+        <div class="footer-right"><span>MADE FOR THE MOMENT BETWEEN SONGS</span><span class="footer-rule"></span><span>STANDARD · 440 HZ</span></div>
+      </footer>
+    </main>
+  </body>
+</html>
